@@ -99,7 +99,7 @@ class ProductServiceProvider extends ServiceProvider
                 //
             ];
             $config = [
-                //
+                __DIR__.'/../../config/SudoProduct.php' => config_path('SudoProduct.php'),
             ];
             $view = [
                 //
