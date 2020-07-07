@@ -12,7 +12,7 @@ class AttributeController extends AdminController
 	function __construct() {
         $this->models = new \Sudo\Product\Models\Attribute;
         $this->table_name = $this->models->getTable();
-        $this->module_name = 'Thuộc tính';
+        $this->module_name = 'Nhóm thuộc tính';
         $this->has_seo = false;
         $this->has_locale = true;
         parent::__construct();
@@ -52,21 +52,31 @@ class AttributeController extends AdminController
      */
     public function create() {
         $form = new Form;
-        $form->text('name', '', 1, 'Tiêu đề');
-        $form->text('display_name', '', 0, 'Tên hiển thị');
-        $form->radio('status', 1, 'Trạng thái', config('app.status'));
-        $form->custom('Form::custom.form_custom', [
-            'has_full' => false,
-            'name' => 'attribute_details',
-            'value' => $data['attribute_details'] ?? [],
-            'label' => 'Thêm thuộc tính',
-            'generate' => [
-                [ 'type' => 'textarea', 'name' => 'name', 'placeholder' => 'Tên thuộc tính', ],
-            ],
+
+        $form->card('col-lg-3', 'Thông tin nhóm thuộc tính');
+            $form->lang($this->table_name);
+            $form->text('name', '', 1, 'Tiêu đề');
+            $form->text('display_name', '', 0, 'Tên hiển thị');
+            $form->radio('status', 1, 'Trạng thái', config('app.status'));
+            $form->custom('Form::custom.form_custom', [
+                'has_full' => true,
+                'name' => 'attribute_details',
+                'value' => [],
+                'label' => 'Thêm thuộc tính',
+                'generate' => [
+                    [ 'type' => 'textarea', 'name' => 'name', 'placeholder' => 'Nhập tên thuộc tính', ],
+                ],
+            ]);
+        $form->endCard();
+        
+        $form->custom('Product::attributes.attribute_details', [
+            'attribute_id' => 0,
         ]);
+
         $form->action('add');
         // Hiển thị form tại view
-        return $form->render('create');
+        $form->hasFullForm();
+        return $form->render('create_multi_col');
     }
 
     /**
@@ -94,7 +104,7 @@ class AttributeController extends AdminController
         // Điều hướng
         return redirect(route('admin.'.$this->table_name.'.'.$redirect, $id))->with([
             'type' => 'success',
-            'message' => __('Core::admin.create_success')
+            'message' => __('Core::admin.create_success').' '.__('Hãy chọn thuộc tính tại <strong>Danh mục</strong>')
         ]);
     }
 
@@ -119,17 +129,17 @@ class AttributeController extends AdminController
         $data_edit = $this->models->where('id', $id)->first();
 
         $form = new Form;
-        $form->card('col-lg-3', 'Thông tin thuộc tính');
+        $form->card('col-lg-3', 'Thông tin nhóm thuộc tính');
             $form->text('attribute_name', $data_edit->name, 1, 'Tiêu đề');
             $form->text('display_name', $data_edit->display_name, 0, 'Tên hiển thị');
             $form->radio('attribute_status', $data_edit->status, 'Trạng thái', config('app.status'));
             $form->custom('Form::custom.form_custom', [
                 'has_full' => true,
                 'name' => 'attribute_details',
-                'value' => $data['attribute_details'] ?? [],
+                'value' => [],
                 'label' => 'Thêm thuộc tính',
                 'generate' => [
-                    [ 'type' => 'textarea', 'name' => 'name', 'placeholder' => 'Tên thuộc tính', ],
+                    [ 'type' => 'textarea', 'name' => 'name', 'placeholder' => 'Nhập tên thuộc tính', ],
                 ],
             ]);
         $form->endCard();

@@ -6,7 +6,7 @@
 <div class="col-lg-9">
 	<div class="card listdata" id="listdata">
 		<div class="card-header" style="padding: .75rem 1.25rem" data-card-widget="collapse">
-			<div class="card-title">@lang('Chi tiết thuộc tính')</div>
+			<div class="card-title">@lang('Thuộc tính')</div>
 			<div class="card-tools">
 				<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
 			</div>

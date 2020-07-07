@@ -32,6 +32,6 @@
 			</div>
 		@endforeach
 	@else
-		<h5 class="p-2" style="font-weight: normal;">@lang('Bộ lọc tạm thời không khả dụng!')</h5>
+		<h5 class="p-2" style="font-weight: normal;">@lang('Bộ lọc tạm thời không khả dụng!') @lang('Vui lòng') <a href="{{ route('admin.filters.index') }}" target="_blank">@lang('Thêm bộ lọc')</a> @lang('hoặc chọn bộ lọc tại') <a href="{{ route('admin.product_categories.edit', $category_id) }}" target="_blank">@lang('Danh mục')</a></h5>
 	@endif
 @endif
