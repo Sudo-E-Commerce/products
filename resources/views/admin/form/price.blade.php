@@ -28,7 +28,7 @@
             });
             $('#{{$name}}').keyup();
             @if ($required==1)
-                validateInput('#{{$name}}', '@lang($label??$placeholder??$name??'') @lang('Form::form.valid.no_empty')');
+                validateInput('#{{$name}}', '@lang($label??$placeholder??$name??'') @lang('Translate::form.valid.no_empty')');
             @endif
         });
         // Định dạng giá

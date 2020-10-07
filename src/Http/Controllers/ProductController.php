@@ -35,9 +35,9 @@ class ProductController extends AdminController
         $listdata->search('created_at', 'Ngày tạo', 'range');
         $listdata->search('status', 'Trạng thái', 'array', config('app.status'));
         // Build các button hành động
-        $listdata->btnAction('status', 1, __('Table::table.active'), 'success', 'fas fa-edit');
-        $listdata->btnAction('status', 0, __('Table::table.no_active'), 'info', 'fas fa-window-close');
-        $listdata->btnAction('delete', -1, __('Table::table.trash'), 'danger', 'fas fa-trash');
+        $listdata->btnAction('status', 1, __('Translate::table.active'), 'success', 'fas fa-edit');
+        $listdata->btnAction('status', 0, __('Translate::table.no_active'), 'info', 'fas fa-window-close');
+        $listdata->btnAction('delete', -1, __('Translate::table.trash'), 'danger', 'fas fa-trash');
         // Build bảng
         $listdata->add('image', 'Ảnh', 0);
         $listdata->add('name', 'Tên', 1);
@@ -157,7 +157,7 @@ class ProductController extends AdminController
         // Điều hướng
         return redirect(route('admin.'.$this->table_name.'.'.$redirect, $id))->with([
             'type' => 'success',
-            'message' => __('Core::admin.create_success')
+            'message' => __('Translate::admin.create_success')
         ]);
     }
 
@@ -291,7 +291,7 @@ class ProductController extends AdminController
         // Điều hướng
         return redirect(route('admin.'.$this->table_name.'.'.$redirect, $id))->with([
             'type' => 'success',
-            'message' => __('Core::admin.update_success')
+            'message' => __('Translate::admin.update_success')
         ]);
     }
 

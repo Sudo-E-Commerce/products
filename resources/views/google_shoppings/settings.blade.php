@@ -8,7 +8,7 @@
 	<div class="col-lg-12">
 		<div class="card">
 			<div class="card-header">
-				<div class="card-title">@lang($note ?? 'Form::form.require_text')</div>
+				<div class="card-title">@lang($note ?? 'Translate::form.require_text')</div>
 				<div class="card-tools">
 					<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
 				</div>

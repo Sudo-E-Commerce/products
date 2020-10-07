@@ -37,13 +37,13 @@
 									'options' => config('app.status')
 								])
 								<td class="text-center table-action">
-						            <a class="delete-record" href="javascript:;" data-delete_attribute data-message="@lang('Table::table.delete_question')"><i class="fas fa-trash text-red"></i></a>
+						            <a class="delete-record" href="javascript:;" data-delete_attribute data-message="@lang('Translate::table.delete_question')"><i class="fas fa-trash text-red"></i></a>
 						        </td>
 							</tr>
 						@endforeach
 					@else
 						<tr>
-							<td colspan="6" class="text-center">@lang('Table::table.no_record')</td>
+							<td colspan="6" class="text-center">@lang('Translate::table.no_record')</td>
 						</tr>
 					@endif
 				</tbody>
@@ -79,7 +79,7 @@
 				        			if (e.closest('tbody').find('tr').length == 0) {
 				        				$('.listdata').find('tbody').append(`
 											<tr>
-												<td colspan="6" class="text-center">@lang('Table::table.no_record')</td>
+												<td colspan="6" class="text-center">@lang('Translate::table.no_record')</td>
 											</tr>
 				        				`);
 				        			}
