@@ -90,6 +90,16 @@ Package đã tích hợp sẵn các module khác: Google Shopping, Bộ lọc, T
 		],
 	],
 	'attributes' => [
+		'name' 			=> 'Nhóm thuộc tính',
+		'permision' 	=> [
+			[ 'type' => 'index', 'name' => 'Truy cập' ],
+			[ 'type' => 'create', 'name' => 'Thêm' ],
+			[ 'type' => 'edit', 'name' => 'Sửa' ],
+			[ 'type' => 'restore', 'name' => 'Lấy lại' ],
+			[ 'type' => 'delete', 'name' => 'Xóa' ],
+		],
+	],
+	'attribute_details' => [
 		'name' 			=> 'Thuộc tính',
 		'permision' 	=> [
 			[ 'type' => 'index', 'name' => 'Truy cập' ],
@@ -100,6 +110,16 @@ Package đã tích hợp sẵn các module khác: Google Shopping, Bộ lọc, T
 		],
 	],
 	'filters' => [
+		'name' 			=> 'Nhóm bộ lọc',
+		'permision' 	=> [
+			[ 'type' => 'index', 'name' => 'Truy cập' ],
+			[ 'type' => 'create', 'name' => 'Thêm' ],
+			[ 'type' => 'edit', 'name' => 'Sửa' ],
+			[ 'type' => 'restore', 'name' => 'Lấy lại' ],
+			[ 'type' => 'delete', 'name' => 'Xóa' ],
+		],
+	],
+	'filter_details' => [
 		'name' 			=> 'Bộ lọc',
 		'permision' 	=> [
 			[ 'type' => 'index', 'name' => 'Truy cập' ],
