@@ -122,13 +122,9 @@ class ProductCategoryController extends AdminController
         $compact = compact('parent_id','name','slug','image','detail','status','created_at','updated_at');
         $id = $this->models->createRecord($requests, $compact, $this->has_seo, $this->has_locale);
         // Thuộc tính
-        if (isset($attributes) && !empty($attributes)) {
-            $this->setAttributeMap($attributes, $id);
-        }
+        $this->setAttributeMap($attributes??[], $id);
         // Bộ lọc
-        if (isset($filters) && !empty($filters)) {
-            $this->setFilterMap($filters, $id);
-        }
+        $this->setFilterMap($filters??[], $id);
         // Lưu cấu hình google shopping
         if (config('SudoProduct.google_shoppings') == true) {
             googleShopping($requests, 'product_categories', $id);
@@ -244,13 +240,9 @@ class ProductCategoryController extends AdminController
         // Cập nhật tại database
         $this->models->updateRecord($requests, $id, $compact, $this->has_seo);
         // Thuộc tính
-        if (isset($attributes) && !empty($attributes)) {
-            $this->setAttributeMap($attributes, $id);
-        }
+        $this->setAttributeMap($attributes??[], $id);
         // Bộ lọc
-        if (isset($filters) && !empty($filters)) {
-            $this->setFilterMap($filters, $id);
-        }
+        $this->setFilterMap($filters??[], $id);
         // Lưu cấu hình google shopping
         if (config('SudoProduct.google_shoppings') == true) {
             googleShopping($requests, 'product_categories', $id);
