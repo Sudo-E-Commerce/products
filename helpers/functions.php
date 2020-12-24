@@ -36,6 +36,7 @@ function getAttributeCategoryMap($category_id) {
         if (count($attribute_product_category_maps) > 0 || $category->parent_id == 0) {
             $coutinue = false;
         }
+        $category_id = $category->parent_id;
     }
     return $attribute_product_category_maps;
 }
@@ -53,6 +54,7 @@ function getFilterCategoryMap($category_id) {
         if (count($filter_product_category_maps) > 0 || $category->parent_id == 0) {
             $coutinue = false;
         }
+        $category_id = $category->parent_id;
     }
     return $filter_product_category_maps;
 }
